@@ -1,0 +1,20 @@
+test_seed: 0
+compute_test_stats: true
+compute_shift_stats: false
+compute_ood_stats: true
+num_posterior_samples: 200
+stratified_sampling: true
+subsample_sizes: [5,10,15,20,40,60,80,100,120,140,160,180,200]
+covariance_scale_factor: 1
+
+model_seeds: [1]
+model_prefix: models/cifar10/aug_true/map/wrn-16-4_seed=
+model_suffix: .pt
+
+stats_dir: stats/cifar10/aug_true/map/
+stats_name: wrn-16-4_seed=1
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .

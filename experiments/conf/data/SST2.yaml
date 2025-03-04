@@ -1,0 +1,8 @@
+defaults:
+  - defaults
+  - _self_
+
+_target_: src.data.SST2DataModule
+data_augmentation: false
+name: SST2
+debug: false

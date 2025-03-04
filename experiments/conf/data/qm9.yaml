@@ -1,0 +1,14 @@
+defaults:
+  - _self_
+
+_target_: src.data.QM9DataModule
+data_augmentation: false
+name: qm9
+target: 7
+data_dir: data/
+batch_size_train: 100
+batch_size_inference: 2048
+num_workers: 4
+splits: [110000, 10000, 10831]
+seed: 0
+subset_size: null

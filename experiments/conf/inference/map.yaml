@@ -1,0 +1,33 @@
+defaults:
+  - defaults
+  - _self_
+
+name: map
+
+init:
+  _target_: src.inference.MAP
+  likelihood: classification
+
+fit:
+  _target_: src.inference.MAP.fit
+  num_epochs: 100
+  patience: 100
+  min_epochs: 100
+  es_criterion: loss
+  optimizer:
+    _target_: torch.optim.SGD
+    _partial_: true
+    lr: 0.1
+    momentum: 0.9
+    weight_decay: 5e-4
+    nesterov: true
+  scheduler:
+    _target_: torch.optim.lr_scheduler.CosineAnnealingLR
+    _partial_: true
+    eta_min: 0
+    T_max: ${inference.fit.num_epochs}
+  lam_schedule:
+    _target_: src.utils.interpolation_lam_schedule
+    _partial_: true
+    num_warmup_steps: 200000 
+    num_interpolation_steps: 200000

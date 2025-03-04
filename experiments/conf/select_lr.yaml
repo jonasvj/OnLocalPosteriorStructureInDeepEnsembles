@@ -1,0 +1,10 @@
+swag_dir: models/cifar10/aug_false/swag/
+model_name: wrn-16-4
+new_inference_class: src.inference.SWA
+val_metrics_dest: tables/swa_val_metrics.csv
+selected_dest: tables/swa_selected_val_metrics.csv
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .

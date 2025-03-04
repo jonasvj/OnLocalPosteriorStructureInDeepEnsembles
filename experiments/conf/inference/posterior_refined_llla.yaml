@@ -1,0 +1,25 @@
+defaults:
+  - defaults
+  - _self_
+
+name: posterior_refined_llla
+load_base: true
+
+init:
+  _target_: src.inference.PosteriorRefinedLastLayerLaplace
+  likelihood: classification
+  data_augmentation: ${data.data_augmentation}
+  transform: radial
+  num_transforms: 10
+  dataset: ${data.name}
+  prior_precision: 0
+  n_classes: 10
+
+fit:
+  _target_: src.inference.PosteriorRefinedLastLayerLaplace.fit
+  num_epochs: 20
+  num_posterior_samples: 100
+  optimizer:
+      optim_args:
+        lr: 1e-3
+        weight_decay: 0 

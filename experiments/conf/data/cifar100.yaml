@@ -1,0 +1,8 @@
+defaults:
+  - defaults
+  - _self_
+
+_target_: src.data.CIFAR100DataModule
+data_augmentation: true
+name: cifar100
+debug: false

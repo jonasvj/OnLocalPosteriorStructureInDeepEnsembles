@@ -1,0 +1,11 @@
+defaults:
+  - config
+  - _self_
+
+data_aug: false
+created_after: 2024-07-21T12
+
+
+swag_val_metrics_dest: tables/swag_val_metrics.csv
+selected_swag_dest: tables/swag_selected_val_metrics.csv
+create_links: false

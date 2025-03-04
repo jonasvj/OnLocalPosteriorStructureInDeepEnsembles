@@ -1,0 +1,20 @@
+defaults:
+  - defaults
+  - _self_
+
+name: wrn-${model.backbone.depth}-${model.backbone.widen_factor}
+
+_target_: src.models.ModelWrapper
+backbone:
+  _target_: src.models.WideResNetBackbone
+  depth: 16
+  widen_factor: 4
+  dropout_rate: 0
+  conv_biases: false
+  norm_type: frn
+  conv_type: standard
+head:
+  _target_: src.models.ClassificationHead
+  input_dim: 256
+  num_classes: 10
+

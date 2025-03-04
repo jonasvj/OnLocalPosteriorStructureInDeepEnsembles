@@ -1,0 +1,9 @@
+data_dir: data/
+batch_size_train: 128
+batch_size_inference: 2048
+num_workers: 4
+num_val: 2000
+seed: 0
+ood: false
+shift: false
+data_augmentation: false

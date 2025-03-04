@@ -1,0 +1,19 @@
+defaults:
+  - defaults
+  - _self_
+
+name: swag
+
+init:
+  _target_: src.inference.SWAG
+  likelihood: classification
+  rank: 100
+
+fit:
+  _target_: src.inference.SWAG.fit
+  optimizer:
+    _target_: torch.optim.SGD
+    _partial_: true
+    lr: 1e-3
+    momentum: 0.9
+    weight_decay: 5e-4

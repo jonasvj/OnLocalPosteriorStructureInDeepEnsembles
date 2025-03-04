@@ -1,0 +1,18 @@
+defaults:
+  - defaults
+  - _self_
+
+name: llla
+
+init:
+  _target_: src.inference.LastLayerLaplace
+  likelihood: classification
+  hessian_structure: full
+  pred_type: nn
+  link_approx: mc
+
+fit:
+  _target_: src.inference.LastLayerLaplace.fit
+  num_posterior_samples: ${num_posterior_samples}
+  grid_size: 21
+  prior_fit_method: CV

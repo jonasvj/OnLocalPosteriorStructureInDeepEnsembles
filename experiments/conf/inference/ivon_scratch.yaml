@@ -1,0 +1,43 @@
+defaults:
+  - defaults
+  - _self_
+
+name: ivon_scratch
+
+init:
+  _target_: src.inference.IVONFromScratch
+  likelihood: classification
+  optimizer:
+    _target_: ivon.IVON
+    _partial_: true
+    lr: 0.2
+    hess_init: 0.5
+    beta1: 0.9
+    beta2: 0.99999
+    weight_decay: 2e-4
+    mc_samples: 1
+    ess: 48000
+
+fit:
+  _target_: src.inference.IVONFromScratch.fit
+  num_epochs: 200
+  patience: 200
+  min_epochs: 200
+  es_criterion: loss
+  scheduler:
+    _target_: torch.optim.lr_scheduler.CosineAnnealingLR
+    _partial_: true
+    eta_min: 0
+    T_max: ${inference.fit.num_epochs}
+  warmup_epochs: 5
+  scheduler_warmup:
+    _target_: torch.optim.lr_scheduler.LinearLR
+    _partial_: true
+    start_factor: 0.2
+    end_factor: 1.0
+    total_iters: ${inference.fit.warmup_epochs}
+  lam_schedule:
+    _target_: src.utils.interpolation_lam_schedule
+    _partial_: true
+    num_warmup_steps: 200000 
+    num_interpolation_steps: 200000

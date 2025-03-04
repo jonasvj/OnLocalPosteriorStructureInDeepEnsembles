@@ -1,0 +1,20 @@
+defaults:
+  - data: cifar10
+  - model: wrn
+  - inference: map
+  - logger: wandb
+  - _self_
+  - override hydra/hydra_logging: disabled
+  - override hydra/job_logging: disabled
+
+seed: 0
+num_posterior_samples: 100
+model_dir: models/${data.name}${norm_name:${model}}/aug_${data.data_augmentation}/${inference.name}/
+model_name: ${model.name}_seed=${seed}.pt
+pretrained_model: null
+disable_eval: false
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .

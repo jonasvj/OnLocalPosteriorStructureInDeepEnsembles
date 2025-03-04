@@ -1,0 +1,11 @@
+defaults:
+  - defaults
+  - _self_
+
+_target_: src.logging.WandBLogger
+group: ${data.name}
+name: ${model.name}_${inference.name}_seed=${seed}
+job_type: null
+entity: WANDB_ENTITY
+project_name: WANDB_PROJECT
+disable: false
