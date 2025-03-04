@@ -5,7 +5,7 @@ All trained models are available at [REDACTED].
 
 ## Setup
 To setup the code environment execute the following commands:
-1. `git clone git@github.com:[REDACTED]/olpside.git` (This is the supplementary material file `code.zip` submitted to AISTATS 2025)
+1. `git clone git@github.com:jonasvj/OnLocalPosteriorStructureInDeepEnsembles.git`
 2. `cd olpside/`
 3. `conda env create -f environment.yml`
 4. `conda activate olpside`
