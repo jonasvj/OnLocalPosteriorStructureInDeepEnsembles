@@ -1,6 +1,8 @@
 # On Local Posterior Structure in Deep Ensembles
 Code repository for the paper "On Local Posterior Structure in Deep Ensembles" accepted to AISTATS 2025.
 
+Arxiv link: https://arxiv.org/abs/2503.13296
+
 All trained models are available at https://data.dtu.dk/projects/On_Local_Posterior_Structure_in_Deep_Ensembles_-_Trained_Models/236885.
 
 For each dataset there are placed `selected_<METHODS>.txt` files for SWAG and MCDO models. These contain names of the best performing models (as chosen based on validation loss) with cross-validated hyperparameters of the respective methods for a given seed. 
