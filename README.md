@@ -10,7 +10,7 @@ For each dataset there are placed `selected_<METHODS>.txt` files for SWAG and MC
 ## Setup
 To setup the code environment execute the following commands:
 1. `git clone git@github.com:jonasvj/OnLocalPosteriorStructureInDeepEnsembles.git`
-2. `cd olpside/`
+2. `cd OnLocalPosteriorStructureInDeepEnsembles/`
 3. `conda env create -f environment.yml`
 4. `conda activate olpside`
 5. `pip install -e .`
